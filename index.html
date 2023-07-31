@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Audio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>Audio Play</div>
+    <audio
+      id="idaudio"
+      controls
+      style="background-color: rgb(2, 18, 39); display: block"
+    >
+      <source src="" type="audio/mpeg" />
+    </audio>
+
+    <select id="idselect">
+      <option value="" disabled >Selecine Audio:</option>
+    </select>
+
+    <button onclick="play()">ok</button>
+
+    <script>
+      //lista de audios
+      const listaudio = [
+        "audio1",
+        "audio2",
+        "audio3",
+        "audio4",
+        "audio5",
+        "audio6",
+        "audio7",
+        "audio8",
+        "audio9",
+        "audio10",
+        "audio11",
+        "audio12",
+        "audio13",
+        "audioCorte1",
+        "audioCorte2",
+        "audioCorte3",
+        "audioCorte4",
+        "audioCorte5",
+        "audioCorte6",
+        "audioCorte7",
+        "audioCorte8",
+      ];
+
+      const idselect = document.getElementById("idselect");
+
+      //adicionando a lista de audios no seletor dinamicamente
+      listaudio.forEach((audio) => {
+        opt = new Option(audio, audio);
+        idselect.options[idselect.options.length] = opt;
+      })      
+
+      const idaudio = document.getElementById("idaudio");
+      
+
+      function play() {      
+        console.log(idselect.value);
+        idaudio.src = "/utils/"+idselect.value+".mp3"; //"/utils/audioCorte1.mp3";
+        //idaudio.load();
+        idaudio.play();
+        console.log(idaudio.src);
+      }
+    </script>
+
+    <script></script>
+  </body>
+</html>
